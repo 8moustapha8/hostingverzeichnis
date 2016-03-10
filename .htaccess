@@ -1,0 +1,45 @@
+# Turn Rewrite Engine On
+
+RewriteEngine on
+
+
+# Sonstiges
+
+RewriteRule ^login business.php [NC,L]
+RewriteRule ^kontakt contact.php [NC,L]
+
+
+# Unternehmen
+
+RewriteRule ^unternehmen/([0-9a-zA-Z]+)/([0-9]+) details.php?type=company&company=$1&id=$2 [NC,L]
+
+
+# Produkte
+
+RewriteRule ^webhosting/([0-9a-zA-Z-]+)/([0-9a-zA-Z-]+)/([0-9]+) details.php?type=shared&company=$1&product=$2&id=$3 [NC,L]
+RewriteRule ^shared-server/([0-9a-zA-Z-]+)/([0-9a-zA-Z-]+)/([0-9]+) details.php?type=shared&company=$1&product=$2&id=$3 [NC,L]
+
+RewriteRule ^virtual-server/([0-9a-zA-Z-]+)/([0-9a-zA-Z-]+)/([0-9]+) details.php?type=virtual&company=$1&product=$2&id=$3 [NC,L]
+RewriteRule ^v-server/([0-9a-zA-Z-]+)/([0-9a-zA-Z-]+)/([0-9]+) details.php?type=virtual&company=$1&product=$2&id=$3 [NC,L]
+
+RewriteRule ^root-server/([0-9a-zA-Z-]+)/([0-9a-zA-Z-]+)/([0-9]+) details.php?type=root&company=$1&product=$2&id=$3 [NC,L]
+
+RewriteRule ^game-server/([0-9a-zA-Z-]+)/([0-9a-zA-Z-]+)/([0-9]+) details.php?type=game&company=$1&product=$2&id=$3 [NC,L]
+
+
+# Filter
+
+RewriteRule ^webhosting filter.php?type=shared [NC,L]
+RewriteRule ^shared-server filter.php?type=shared [NC,L]
+
+RewriteRule ^virtual-server filter.php?type=virtual [NC,L]
+RewriteRule ^v-server filter.php?type=virtual [NC,L]
+
+RewriteRule ^root-server filter.php?type=root [NC,L]
+
+RewriteRule ^game-server filter.php?type=game [NC,L]
+
+
+# Error
+
+ErrorDocument 404 /404.php
